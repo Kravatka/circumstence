@@ -1,3 +1,7 @@
+# Basic
+.idea
+.env
+
 # Compiled class file
 *.class
 
