@@ -1,6 +1,6 @@
-# P.lot (Parking Lot)
+# Parspot (Parking spot)
 ## Overview
-**P.lot** - is a parking lot management system that allows users to manage their parking lots and parking spots.
+**Parspot** - is a parking lot management system that allows users to manage their parking lots and parking spots.
 
 <img src="images/plot1.png" width="400" alt=""/>
 
