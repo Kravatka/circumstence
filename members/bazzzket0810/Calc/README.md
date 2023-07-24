@@ -31,44 +31,42 @@ This calculator is run through the command line interface (CLI).
    java -jar SimpleCalculator.jar
    ```
 
-8. The calculator program will start running in the console. You will be prompted to enter an operation and two numbers to perform the calculation.
+8. The calculator program will start running in the console. You will be prompted to enter two numbers and an operation to perform the calculation.
 
-9. Enter the operation you want to perform ('+', '-', '*', or '/'), and then input the two numbers you want to calculate with.
+9. Input the first number, operation and the second number you want to calculate with.
 
 10. The program will display the result of the calculation.
 
-11. To quit the calculator, type 'q' when prompted to enter an operation.
+11. To quit the calculator, type 'q' at any time.
 
 ## Example Usage
 
 ```
-------------------------------------
-    Welcome to Simple Calculator
+------------------------------------ 
+    Welcome to Simple Calculator 
 ------------------------------------
 Following operations are supported :
 1. Addition (+)
 2. Subtraction (-)
-3. Multiplication (* OR x)
+3. Multiplication (*)
 4. Division (/)
-5. Exit (q)
+5. Exit (enter "q" at any time) 
 
-Enter an operator: (+ OR - OR * OR / OR Q for Exit)
-+
-Enter First Number:
-5
-Enter Second Number:
-10
-5.0 + 10.0 = 15.0
-Enter an operator: (+ OR - OR * OR / OR Q for Exit)
-/
-Enter First Number:
-20
-Enter Second Number:
-0
-Second Number can't be zero for Division operation.
-20.0 / 0.0 = Infinity
-Enter an operator: (+ OR - OR * OR / OR Q for Exit)
-q
+Enter the first number: 12
+Enter an operator (+, -, *, /): +
+Enter the second number: 5
+Result: 17.0
+Enter the first number: 5
+Enter an operator (+, -, *, /): /
+Enter the second number: 0
+Error: Division by zero is not allowed.
+Enter the first number: 6
+Enter an operator (+, -, *, /): +
+Enter the second number: sfds
+Invalid input for the second number. Please enter a valid number.
+Enter the first number: q
+Calculator has been closed. Goodbye!
+
 ```
 
 ## Note
