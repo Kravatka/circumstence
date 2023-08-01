@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+.logo {
+    margin-top: 50px;
+}
+
+.spring_pic {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+}
+
