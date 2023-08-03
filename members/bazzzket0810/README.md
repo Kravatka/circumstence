@@ -3,6 +3,6 @@
 ```mermaid
 
 pie title Commits
-    "Percents of my commits" : 4
-    "Percents to complete the pie" : 96
+    "Percents of my commits" : 5
+    "Percents to complete the pie" : 95
 ```
