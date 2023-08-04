@@ -14,7 +14,7 @@ function showAlert (message, type) {
   if (type === 'success') {
     alertDiv.classList.add('success')
   }
-  alertDiv.textContent = message;
+  alertDiv.textContent = message
   document.getElementById('container').appendChild(alertDiv)
 
   setTimeout(function () {
