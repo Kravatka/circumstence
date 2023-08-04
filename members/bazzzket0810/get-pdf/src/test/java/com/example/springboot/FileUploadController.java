@@ -11,46 +11,47 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-/** Controller class to handle file uploads in the Spring Boot application. */
+/** A controller class responsible for handling file uploads in a Spring Boot
+ *  application. */
 @Controller
 @SpringBootApplication
 public class FileUploadController {
 
-  /** The upload folder for temporary storage of uploaded files. */
+  // Define the constant for the upload folder
   private static final String UPLOAD_FOLDER = "/../../.tmp/";
 
-  /** Program entry. */
+  /**
+   * The main method to run the Spring Boot application.
+   *
+   * @param args The command line arguments.
+   */
   public static void main(final String[] args) {
     SpringApplication.run(FileUploadController.class);
   }
 
   /**
-   * Handles the file upload process.
+   * Handles the file upload operation.
    *
-   * @param file The uploaded file.
-   * @return A redirect URL based on the upload result.
+   * @param file The uploaded file to be processed.
+   * @return A redirect URL based on the result of the file upload.
    */
   @PostMapping("/upload")
   public String handleFileUpload(
-          @RequestParam("file")
-          final MultipartFile file) {
+      @RequestParam("file") final MultipartFile file) {
 
-    // Check for the presence of the file
+    // Check if the file is empty
     if (file.isEmpty()) {
       return "redirect:/index.html";
     }
 
     // Check if the file is a PDF
-    if (!Objects.requireNonNull(
-            file.getContentType())
-            .equalsIgnoreCase("application/pdf")) {
-
+    if (!Objects.requireNonNull(file.getContentType()).equalsIgnoreCase(
+        "application/pdf")) {
       return "redirect:/index.html?error=File is not a PDF";
     }
 
-    // Determine the location of the class and create a file
-    // in the \get-pdf\.tmp directory
     try {
+      // Get the current class location
       File classLocation =
           new File(
               FileUploadController.class
@@ -59,33 +60,35 @@ public class FileUploadController {
                   .getLocation()
                   .toURI());
 
+      // Create a temporary directory for file storage
       File tmpDirectory =
-              new File(
-                  classLocation
-                  .getParentFile()
-                  .getParentFile(),
-                  UPLOAD_FOLDER);
+          new File(
+          classLocation
+          .getParentFile()
+          .getParentFile(),
+          UPLOAD_FOLDER);
 
+      // Create the directory if it doesn't exist
       if (!tmpDirectory.exists()) {
         tmpDirectory.mkdirs();
       }
 
+      // Set the destination file path
       File destFile =
-              new File(
-                  tmpDirectory,
-                  Objects.requireNonNull(file.getOriginalFilename()));
+          new File(
+          tmpDirectory,
+          Objects
+          .requireNonNull(file.getOriginalFilename()));
 
-      // Save the file to the \get-pdf\.tmp directory
+      // Transfer the uploaded file to the destination
       file.transferTo(destFile);
 
     } catch (IOException | URISyntaxException e) {
       e.printStackTrace();
 
-      // Message for unsuccessful upload
       return "redirect:/index.html?error=Error saving the file";
     }
 
-    // Message for successful upload
     return "redirect:/index.html?success=File upload completed";
   }
 }
