@@ -19,9 +19,13 @@ public class FileUploadController {
   /** The upload folder for temporary storage of uploaded files. */
   private static final String UPLOAD_FOLDER = "/../../.tmp/";
 
-  /** Program entry. */
+  /** Program entry.
+
+   * @param args is array of Strings
+   * waitForExit(); - Method for exit */
   public static void main(final String[] args) {
     SpringApplication.run(FileUploadController.class);
+    waitForExit(); // Call the method to wait for 'q' to exit
   }
 
   /**
@@ -87,5 +91,24 @@ public class FileUploadController {
 
     // Message for successful upload
     return "redirect:/index.html?success=File upload completed";
+  }
+
+  /**
+   * Waits for the user to press 'q' and then terminates the program.
+   * <p>
+   * This method keeps waiting for the user to press 'q' and then terminates
+   * the program when 'q' is pressed.
+   * It outputs a message to the console to prompt the user to press 'q'.
+   * </p>
+   */
+  private static void waitForExit() {
+    System.out.println("Press 'q' and Enter to exit.");
+    try {
+      while (System.in.read() != 'q');
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    System.out.println("Exiting...");
+    System.exit(0);
   }
 }
