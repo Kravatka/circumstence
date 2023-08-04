@@ -49,12 +49,12 @@ This project was created by [Your Name]. You can contact me at [your.email@examp
 
 Thank you for using this File Upload Application with Spring Boot. Happy uploading!
 
-## Let’s build and run the program.
+## Let’s build and run the program
 
 Open a command-line (or terminal) and navigate to the folder where you have the project files. We can build and run the application by issuing the following command:
 
-## MacOS/Linux:
+## MacOS/Linux
 ```./gradlew bootRun```
 
-## Windows:
+## Windows
 ```.\gradlew.bat bootRun```
