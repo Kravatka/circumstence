@@ -15,87 +15,93 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 class FileUploadControllerTest {
 
-  /** The URL to redirect to when the file upload is successful. */
-  private static final String UPLOAD_SUCCESS_URL =
-      "/index.html?success=File+upload+completed";
+    /**
+     * The URL to redirect to when the file upload is successful.
+     */
+    private static final String UPLOAD_SUCCESS_URL =
+            "/index.html?success=File+upload+completed";
 
-  /** The URL to redirect to when the file upload fails. */
-  private static final String UPLOAD_ERROR_URL =
-      "/index.html?error=File+is+not+a+PDF";
+    /**
+     * The URL to redirect to when the file upload fails.
+     */
+    private static final String UPLOAD_ERROR_URL =
+            "/index.html?error=File+is+not+a+PDF";
 
-  /** The MockMvc instance for testing the controller. */
-  private MockMvc mockMvc;
+    /**
+     * The MockMvc instance for testing the controller.
+     */
+    private MockMvc mockMvc;
 
-  /**
-   * Set up the MockMvc instance for testing the
-   * {@link com.example.springboot.FileUploadController}.
-   * Configures the MockMvc with a standalone setup of the controller, setting
-   * the view resolvers.
-   */
-  @BeforeEach
-  public void setup() {
-    InternalResourceViewResolver viewResolver =
-        new InternalResourceViewResolver();
-    viewResolver.setPrefix("/templates/");
-    viewResolver.setSuffix(".html");
+    /**
+     * Set up the MockMvc instance for testing the
+     * {@link com.example.springboot.FileUploadController}.
+     * Configures the MockMvc with a standalone setup of the controller, setting
+     * the view resolvers.
+     */
+    @BeforeEach
+    public void setup() {
+        InternalResourceViewResolver viewResolver =
+                new InternalResourceViewResolver();
+        viewResolver.setPrefix("/templates/");
+        viewResolver.setSuffix(".html");
 
-    mockMvc =
-      MockMvcBuilders.standaloneSetup(new FileUploadController())
-        .setViewResolvers(viewResolver)
-        .build();
-  }
+        mockMvc =
+                MockMvcBuilders.standaloneSetup(new FileUploadController())
+                        .setViewResolvers(viewResolver)
+                        .build();
+    }
 
-  /**
-   * Test the successful file upload scenario.
-   *
-   * @throws Exception if an error occurs during the test.
-   */
-  @Test
-  void testSuccessfulFileUpload() throws Exception {
-    MockMultipartFile file =
-        new MockMultipartFile(
-        "file", "test.pdf", "application/pdf",
-        "Test PDF content".getBytes());
+    /**
+     * Test the successful file upload scenario.
+     *
+     * @throws Exception if an error occurs during the test.
+     */
+    @Test
+    void testSuccessfulFileUpload() throws Exception {
+        MockMultipartFile file =
+                new MockMultipartFile(
+                        "file", "test.pdf", "application/pdf",
+                        "Test PDF content".getBytes());
 
-    mockMvc
-        .perform(multipart("/upload").file(file))
-        .andExpect(status().is3xxRedirection())
-        .andExpect(redirectedUrl(UPLOAD_SUCCESS_URL));
-  }
+        mockMvc
+                .perform(multipart("/upload").file(file))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl(UPLOAD_SUCCESS_URL));
+    }
 
-  /**
-   * Test the scenario when an empty file is uploaded.
-   *
-   * @throws Exception if an error occurs during the test.
-   */
-  @Test
-  void testEmptyFileUpload() throws Exception {
-    MockMultipartFile file =
-        new MockMultipartFile(
-        "file", "test.pdf", "application/pdf",
-            new byte[0]);
+    /**
+     * Test the scenario when an empty file is uploaded.
+     *
+     * @throws Exception if an error occurs during the test.
+     */
+    @Test
+    void testEmptyFileUpload() throws Exception {
+        MockMultipartFile file =
+                new MockMultipartFile(
+                        "file", "test.pdf", "application/pdf",
+                        new byte[0]);
 
-    mockMvc
-        .perform(multipart("/upload").file(file))
-        .andExpect(status().is3xxRedirection())
-        .andExpect(redirectedUrl("/index.html"));
-  }
+        mockMvc
+                .perform(multipart("/upload").file(file))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/index.html"));
+    }
 
-  /**
-   * Test the scenario when a non-PDF file is uploaded.
-   *
-   * @throws Exception if an error occurs during the test.
-   */
-  @Test
-  void testNonPdfFileUpload() throws Exception {
-    MockMultipartFile file =
-        new MockMultipartFile(
-        "file", "test.txt", "text/plain",
-        "Test text content".getBytes());
+    /**
+     * Test the scenario when a non-PDF file is uploaded.
+     *
+     * @throws Exception if an error occurs during the test.
+     */
+    @Test
+    void testNonPdfFileUpload() throws Exception {
+        MockMultipartFile file =
+                new MockMultipartFile(
+                        "file", "test.txt", "text/plain",
+                        "Test text content".getBytes());
 
-    mockMvc
-        .perform(multipart("/upload").file(file))
-        .andExpect(status().is3xxRedirection())
-        .andExpect(redirectedUrl(UPLOAD_ERROR_URL));
-  }
+        mockMvc
+                .perform(multipart("/upload").file(file))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl(UPLOAD_ERROR_URL));
+    }
 }
