@@ -2,6 +2,7 @@ package com.example.springboot;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
- * Unit tests for {@link com.example.springboot.FileUploadController}.
+ * Unit tests for {@link FileUploadController}.
  */
 class FileUploadControllerTest {
 
@@ -34,7 +35,7 @@ class FileUploadControllerTest {
 
     /**
      * Set up the MockMvc instance for testing the
-     * {@link com.example.springboot.FileUploadController}.
+     * {@link FileUploadController}.
      * Configures the MockMvc with a standalone setup of the controller, setting
      * the view resolvers.
      */
