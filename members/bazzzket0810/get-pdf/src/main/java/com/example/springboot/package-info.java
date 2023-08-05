@@ -13,9 +13,9 @@
  *
  * <p>Note: The {@code FileUploadController} class serves as the entry point
  * for the file upload application and is annotated with Spring's {@code
+ *
  * @Controller} and {@code @SpringBootApplication} annotations for handling
  * HTTP requests.</p>
- *
  * @since 1.0
  */
 package com.example.springboot;
