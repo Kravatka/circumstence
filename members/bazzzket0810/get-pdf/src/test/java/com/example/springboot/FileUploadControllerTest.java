@@ -1,8 +1,8 @@
 package com.example.springboot;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,11 +16,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 class FileUploadControllerTest {
 
+  /** The URL to redirect to when the file upload is successful. */
   private static final String UPLOAD_SUCCESS_URL =
       "/index.html?success=File+upload+completed";
+
+  /** The URL to redirect to when the file upload fails. */
   private static final String UPLOAD_ERROR_URL =
       "/index.html?error=File+is+not+a+PDF";
 
+  /** The MockMvc instance for testing the controller. */
   private MockMvc mockMvc;
 
   /**

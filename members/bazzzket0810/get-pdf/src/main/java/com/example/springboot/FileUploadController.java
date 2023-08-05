@@ -104,7 +104,9 @@ public class FileUploadController {
   private static void waitForExit() {
     System.out.println("Press 'q' and Enter to exit.");
     try {
-      while (System.in.read() != 'q');
+      while (System.in.read() != 'q') {
+        // Empty loop body
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }
