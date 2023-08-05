@@ -77,7 +77,8 @@ public class FileUploadController {
                             UPLOAD_FOLDER);
 
             if (!tmpDirectory.exists()) {
-                tmpDirectory.mkdirs();
+                //noinspection ResultOfMethodCallIgnored
+                tmpDirectory.mkdir();
             }
 
             File destFile =
@@ -89,7 +90,7 @@ public class FileUploadController {
             file.transferTo(destFile);
 
         } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
 
             // Message for unsuccessful upload
             return "redirect:/index.html?error=Error saving the file";
@@ -114,7 +115,7 @@ public class FileUploadController {
                 System.out.println("reading...");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
         System.out.println("Exiting...");
         System.exit(0);
