@@ -16,8 +16,7 @@ backend logic with frontend visualization using Thymeleaf templates.
 
 ---
 
-## Description
-
+## <a id="description">Description</a>
 The SuccessPie application provides a pie chart representation of success
 percentages for a given user. It uses Spring Data JPA to interact with a
 database to retrieve user-specific success percentages. The frontend is
@@ -44,7 +43,7 @@ The application consists of the following components:
 
 ---
 
-## Prerequisites
+## <a id="prerequisites">Prerequisites</a>
 
 Before running the application, make sure you have the following prerequisites:
 
@@ -53,39 +52,37 @@ Before running the application, make sure you have the following prerequisites:
 
 ---
 
-## Running the Application
-
+## <a id="running-the-application">Running the Application</a>
 To run the SuccessPie application, follow these steps:
 
 1. Clone this repository to your local machine:
 
-\```
+```
 git clone <repository-url>
-\```
+```
 
 2. Open the application directory:
 
 3. Build the application using Maven:
 
-\```
+```
 mvn clean install
-\```
+```
 
 4. Run the application:
 
-\```
+```
 mvn spring-boot:run
-\```
+```
 
 The application will start, and you can access it by opening a web browser and
-navigating to \`http://localhost:8080/pie\`.
+navigating to `http://localhost:8080/pie`.
 
 ---
 
-## Usage
-
+## <a id="usage">Usage</a>
 Once the application is running, you can access the success pie chart by
-visiting \`http://localhost:8080/pie\` in your web browser. The pie chart will
+visiting `http://localhost:8080/pie` in your web browser. The pie chart will
 display the user-specific success percentages, showcasing both the user's
 success percentage and the remaining percentage.
 
