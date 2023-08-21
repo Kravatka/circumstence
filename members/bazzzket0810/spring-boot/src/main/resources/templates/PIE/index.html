@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <title>Success Pie</title>
     <link rel="stylesheet" th:href="@{@{/PIE/CSS/pie.css}}" />
-    
-    <script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
 </head>
 <body>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
 <div id="chart-container">
-    <canvas id="myPieChart"></canvas>
+    <canvas id="my-pie-Chart"></canvas>
 </div>
 <script th:inline="javascript">
-    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var ctx = document.getElementById('my-pie-Chart').getContext('2d');
     var myPercentValue = /*[[${myPercentValue}]]*/;
     var leftPercentValue = /*[[${leftPercentValue}]]*/;
 

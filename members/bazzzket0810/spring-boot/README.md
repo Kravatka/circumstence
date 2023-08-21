@@ -57,23 +57,17 @@ To run the SuccessPie application, follow these steps:
 
 1. Clone this repository to your local machine:
 
-```
-git clone <repository-url>
-```
+``` git clone <repository-url> ```
 
 2. Open the application directory:
 
 3. Build the application using Maven:
 
-```
-mvn clean install
-```
+``` mvn clean install ```
 
 4. Run the application:
 
-```
-mvn spring-boot:run
-```
+``` mvn spring-boot:run ```
 
 The application will start, and you can access it by opening a web browser and
 navigating to `http://localhost:8080/pie`.
