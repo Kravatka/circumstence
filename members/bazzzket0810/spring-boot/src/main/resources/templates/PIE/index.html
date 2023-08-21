@@ -8,10 +8,10 @@
 <body>
     <script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
 <div id="chart-container">
-    <canvas id="my-pie-Chart"></canvas>
+    <canvas id="my-pie-chart"></canvas>
 </div>
 <script th:inline="javascript">
-    var ctx = document.getElementById('my-pie-Chart').getContext('2d');
+    var ctx = document.getElementById('my-pie-chart').getContext('2d');
     var myPercentValue = /*[[${myPercentValue}]]*/;
     var leftPercentValue = /*[[${leftPercentValue}]]*/;
 
