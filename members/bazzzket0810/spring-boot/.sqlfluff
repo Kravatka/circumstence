@@ -1,5 +1,7 @@
 [sqlfluff]
 dialect = mysql
 
+[linting:overrides]
+"*/asdas.sql" = ignore
 
 
