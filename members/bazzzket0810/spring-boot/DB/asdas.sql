@@ -16,4 +16,3 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET character_set_client = @saved_cs_client;
 
 INSERT INTO `pie` VALUES ('basket0810', 6, 94);
-
