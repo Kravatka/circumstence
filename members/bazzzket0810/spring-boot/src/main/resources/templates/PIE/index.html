@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success Pie</title>
+    <link rel="stylesheet" th:href="@{@{/PIE/CSS/pie.css}}" />
+</head>
+<body>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
+<div id="chart-container">
+    <canvas id="my-pie-chart"></canvas>
+</div>
+<script th:inline="javascript">
+    var ctx = document.getElementById('my-pie-chart').getContext('2d');
+    var myPercentValue = /*[[${myPercentValue}]]*/;
+    var leftPercentValue = /*[[${leftPercentValue}]]*/;
+
+    var data = {
+        labels: ['My Percent', 'Left Percent'],
+        datasets: [{
+            data: [myPercentValue, leftPercentValue],
+            backgroundColor: ['#FF6384', '#36A2EB']
+        }]
+    };
+
+    var options = {
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'right',
+            },
+            title: {
+                display: true,
+                fullSize: false,
+                text: 'My Success Pie (Commits)'
+            }
+        }
+    };
+
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+</script>
+
+</body>
+</html>
+
+
